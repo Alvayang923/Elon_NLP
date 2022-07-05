@@ -4,10 +4,10 @@ NLP project analyzing Elon Musk Twitter activity.
 
 Contributors
 ------------
-- Ludmila Filipova(https://github.com/filipol2)
-- Renfang Yang(https://github.com/Alvayang923)
-- Pengyun Li(https://github.com/whale9707)
-- Alana Jean Reinert(https://github.com/AJR323)
+- [Ludmila Filipova](https://github.com/filipol2)
+- [Renfang Yang](https://github.com/Alvayang923)
+- [Pengyun Li](https://github.com/whale9707)
+- [Alana Jean Reinert](https://github.com/AJR323)
 - Jan Batzner
 
 简介
