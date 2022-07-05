@@ -12,26 +12,25 @@ the_data_out = f'{root_path}\\output_Elon\\'.replace("\\","/")
 path = r'./data/'
 
 
-# the_data = open_pickle(the_data_out, "data_cleaned.pkl")
+the_data = open_pickle(the_data_out, "data_cleaned.pkl")
 
-#--------------sentiment analysis using Vader
-# def vader_senti(sentence):
-#     from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-#     # Create a SentimentIntensityAnalyzer object.
-#     sid_obj = SentimentIntensityAnalyzer()
-#     sentiment_dict = sid_obj.polarity_scores(sentence)
-#     s = sentiment_dict['compound'] 
-#     return s
+# sentiment analysis using Vader
+def vader_senti(sentence):
+    from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+    # Create a SentimentIntensityAnalyzer object.
+    sid_obj = SentimentIntensityAnalyzer()
+    sentiment_dict = sid_obj.polarity_scores(sentence)
+    s = sentiment_dict['compound'] 
+    return s
 
-# the_data["vader"] = the_data.tweet_cleaned.apply(vader_senti)
+the_data["vader"] = the_data.tweet_cleaned.apply(vader_senti)
 
-# write_pickle(the_data_out, "data_cleaned_senti.pkl", the_data)
+write_pickle(the_data_out, "data_cleaned_senti.pkl", the_data)
 
 
-#-------------- try NER with spacy
-# the_data = open_pickle(the_data_out, "data_cleaned_senti.pkl") 
-# pip install spacy
-# run the code in the shell: python -m spacy download en_core_web_sm 
+# try NER with spacy  
+the_data = open_pickle(the_data_out, "data_cleaned_senti.pkl") 
+
 import spacy
 nlp = spacy.load('en_core_web_sm')  
 
@@ -81,7 +80,7 @@ def label_cnt(doc,label):
 write_pickle(the_data_out, "data_label_cnt.pkl", the_data)
 
 
-#---------------add year month day hour
+# add columns: year month day hour
 the_data = open_pickle(the_data_out, "data_label_cnt.pkl") 
 the_data['year'] = the_data['date'].astype(str).str[0:4:1]
 the_data['month'] = the_data['date'].astype(str).str[5:7:1]
@@ -90,30 +89,13 @@ the_data['hour'] = the_data['date'].astype(str).str[11:13:1]
 
 
 
-#---------------vectorize
+# vectorize
 my_vec_data = my_bow(df_in=the_data.tweet_cleaned, path_in=the_data_out, gram_m=1, gram_n=1, sw="tf-idf", name_in="data_vec.pkl")
 
 my_dim_data = my_pca(my_vec_data, the_data_out, "pca.pkl", 0.95)
 
 
-#---------------topic
-metrics = data_bigram.describe()
 
-topics = metrics.loc["max"].T.reset_index().rename(columns={'index':'topic'})
-top = topics.sort_values(by=['max'],ascending=False).head(100)
-
-lda_fun(the_data_out, the_data.tweet_cleaned)   # coherence score & num of topics. 6 topics
-
-
-import gensim
-dictionary = gensim.corpora.Dictionary(the_data.tweet_cleaned)
-bow_corpus = [dictionary.doc2bow(doc) for doc in the_data.tweet_cleaned]
-
-lda_model =  gensim.models.LdaMulticore(my_vec_data, 
-                                   num_topics = 8, 
-                                   id2word = dictionary,                                    
-                                   passes = 10,
-                                   workers = 2)
 
 
 
