@@ -24,7 +24,7 @@ Contributors
 
 #### 1. 数据处理:
 
-- Emojis to words -> pre-processing -> stemming -> stop words
+- 表情转文字 -> 数据预处理 -> 词干提取 -> 去除停词
 
 #### 2. 数据分析:
 
