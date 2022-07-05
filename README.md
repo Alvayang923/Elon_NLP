@@ -1,13 +1,13 @@
-An Exploratory Analysis of Elon Musk’s Communication on Twitter
+基于NLP对马斯克推文的探索性分析 
 =============
-NLP project analyzing Elon Musk Twitter activity.
+An Exploratory Analysis of Elon Musk’s Communication on Twitter
 
 Contributors
 ------------
-- Ludmila Filipova(https://github.com/filipol2)
-- Renfang Yang(https://github.com/Alvayang923)
-- Pengyun Li(https://github.com/whale9707)
-- Alana Jean Reinert(https://github.com/AJR323)
+- [Ludmila Filipova](https://github.com/filipol2)
+- [Renfang Yang](https://github.com/Alvayang923)
+- [Pengyun Li](https://github.com/whale9707)
+- [Alana Jean Reinert](https://github.com/AJR323)
 - Jan Batzner
 
 简介
@@ -24,7 +24,7 @@ Contributors
 
 #### 1. 数据处理:
 
-- Emojis to words -> pre-processing -> stemming -> stop words
+- 表情转文字 -> 数据预处理 -> 词干提取 -> 去除停词
 
 #### 2. 数据分析:
 
