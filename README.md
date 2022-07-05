@@ -1,6 +1,6 @@
-An Exploratory Analysis of Elon Musk’s Communication on Twitter
+基于NLP对马斯克推文的探索性分析 
 =============
-NLP project analyzing Elon Musk Twitter activity.
+An Exploratory Analysis of Elon Musk’s Communication on Twitter
 
 Contributors
 ------------
